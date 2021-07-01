@@ -19,7 +19,7 @@ hades can be used to automate messaging after or during code-sets.
 2) In that folder, you should have:
     * Downloaded ***count_samples.py*** (or whichever alert code set(s) you'd like)
 
-    * A text file called ***hades_info.txt*** - this should contain the bot/channel url associated with hades WITH single quotes around the url (ex. 'ht&#8203;tp:s://hooks.slack.com/services/ABC001/DEF001/GHI001')
+    * A text file called ***hades_info.txt*** - this should contain the bot/channel url associated with hades (ex. ht&#8203;tps://hooks.slack.com/services/ABC001/DEF001/GHI001)
 
 3) Open ***count_samples.py*** and edit the file paths on line 14 (should point to ***hades_info.txt***) and line 21 (should point to ***full_compiled_data.csv***) and save the file.
 
