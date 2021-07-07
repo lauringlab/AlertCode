@@ -19,13 +19,17 @@ with open('C:/Users/juliegil/Documents/UofM_Work/Lab_Organization/AlertCode/hade
 
 # read in full lab sample file
 samples = pd.read_csv("C:/Users/juliegil/Dropbox (University of Michigan)/MED-LauringLab/SequenceSampleMetadata/FinalSummary/full_compiled_data.csv", dtype = str)
+
+# remove negative control rows
+samples = samples[~samples['SampleSourceLocation'].str.contains('Negat')]
+
 row_count = samples.shape[0]
 
 samples['PlateDate'] = pd.to_datetime(samples['PlateDate'])
 platedate1 = str(min(samples['PlateDate']))[0:10]
 platedate2 = str(max(samples['PlateDate']))[0:10]
 
-announcement = "From plate runs dated {} to {}, total COVID-19 samples sequenced = {}".format(platedate1, platedate2, row_count)
+announcement = "From plate runs dated {} to {}, total COVID-19 samples sequenced = {}; Negative Control rows removed.".format(platedate1, platedate2, row_count)
 
 # Set the webhook_url to the one provided by Slack when you create the webhook at https://my.slack.com/services/new/incoming-webhook/
 webhook_url = hades_url
