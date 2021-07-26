@@ -21,6 +21,7 @@ with open('C:/Users/juliegil/Documents/UofM_Work/Lab_Organization/AlertCode/hade
 samples = pd.read_csv("C:/Users/juliegil/Dropbox (University of Michigan)/MED-LauringLab/SequenceSampleMetadata/FinalSummary/full_compiled_data.csv", dtype = str)
 
 # remove negative control rows
+samples['SampleSourceLocation'] = samples['SampleSourceLocation'].fillna('')
 samples = samples[~samples['SampleSourceLocation'].str.contains('Negat')]
 
 row_count = samples.shape[0]
